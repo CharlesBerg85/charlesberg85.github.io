@@ -374,15 +374,29 @@ header {
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the value as needed */
+    overflow: hidden; /* Add this line to hide the scrollbar */
+  }
+  
+
+.project-container {
+    overflow-y: auto; /* or scroll, hidden, etc. */
+    width: 80%; /* Adjust the value as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
 
 .project__item {
     background: var(--clr-dark);
 }
 
 .project__img {
+    width: 500px;
+    height: auto;
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
@@ -391,6 +405,7 @@ header {
 .project__img:hover {
     transform: scale(1.2);
 }
+
 
 /* footer */
 
