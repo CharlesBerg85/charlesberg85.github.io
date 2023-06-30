@@ -301,21 +301,39 @@ header {
 
 
 .techs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
-}
-
-.tech__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    margin-bottom: 2em;
+  }
+  
+  .tech__item {
     background: var(--clr-dark);
-}
-
-.tech__img {
-    transition: 
-        transform 750ms cubic-bezier(.5, 0, .5, 1),
-        opacity 250ms linear;
-    
-}
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tech__img {
+    max-width: 100%;
+    height: auto; /* Ensure the aspect ratio is maintained */
+    transition: transform 750ms cubic-bezier(.5, 0, .5, 1), opacity 250ms linear;
+  }
+  
+  /* Media queries for smaller screens */
+  @media (max-width: 767px) {
+    .tech__item {
+      flex-basis: calc(33.33% - 1em); /* Set the width to 33.33% for three items in a row */
+    }
+  }
+  
+  /* Media queries for larger screens */
+  @media (min-width: 768px) {
+    .tech__item {
+      flex-basis: calc(25% - 1em); /* Set the width to 25% for four items in a row */
+    }
+  }
+  
 
 .tech__img:hover{
     transform: scale(1.2);
